@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 18px; fill: #1f2937; }
+      .code-title { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-weight: 700; font-size: 16px; }
+      .desc { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; fill: #4b5563; }
+      .badge-text { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 600; }
+      .box-label { font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 20px; fill: #ffffff; }
+      .axis-label { font-family: ui-monospace, monospace; font-size: 11px; fill: #6b7280; font-weight: 600; }
+      .point-label { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 600; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#f8fafc"/>
+
+  <!-- ================= LEFT PANEL: scroll-snap-type: both ================= -->
+  <g transform="translate(30, 20)">
+    <!-- Container Card -->
+    <rect width="435" height="495" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+    
+    <!-- Header -->
+    <text x="20" y="32" class="code-title" fill="#dc2626">scroll-snap-type: both</text>
+    <text x="20" y="52" class="desc">Axes evaluated independently → 4 snap positions</text>
+
+    <!-- Canvas Scroller Area -->
+    <rect x="20" y="65" width="395" height="395" rx="8" fill="#7fffd4" stroke="#5eead4" stroke-width="1.5"/>
+
+    <!-- Axis Guidelines -->
+    <!-- X = B_x (115) -->
+    <line x1="115" y1="65" x2="115" y2="460" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+    <!-- X = A_x (305) -->
+    <line x1="305" y1="65" x2="305" y2="460" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+    <!-- Y = A_y (160) -->
+    <line x1="20" y1="160" x2="415" y2="160" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+    <!-- Y = B_y (365) -->
+    <line x1="20" y1="365" x2="415" y2="365" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+
+    <!-- Axis markers -->
+    <text x="115" y="455" text-anchor="middle" class="axis-label">X(B)</text>
+    <text x="305" y="455" text-anchor="middle" class="axis-label">X(A)</text>
+    <text x="26" y="155" class="axis-label">Y(A)</text>
+    <text x="26" y="360" class="axis-label">Y(B)</text>
+
+    <!-- Target Boxes -->
+    <!-- Target A -->
+    <rect x="280" y="135" width="50" height="50" rx="4" fill="#ff0000" stroke="#cc0000" stroke-width="1.5"/>
+    <text x="305" y="167" text-anchor="middle" class="box-label">A</text>
+
+    <!-- Target B -->
+    <rect x="90" y="340" width="50" height="50" rx="4" fill="#ff0000" stroke="#cc0000" stroke-width="1.5"/>
+    <text x="115" y="372" text-anchor="middle" class="box-label">B</text>
+
+    <!-- Snap Points -->
+    <!-- Point (A.x, A.y) -->
+    <circle cx="305" cy="160" r="7" fill="#16a34a" stroke="#ffffff" stroke-width="2"/>
+    <rect x="250" y="100" width="110" height="22" rx="4" fill="#dcfce7" stroke="#86efac"/>
+    <text x="305" y="115" text-anchor="middle" class="badge-text" fill="#15803d">✓ Snaps to A</text>
+
+    <!-- Point (B.x, B.y) -->
+    <circle cx="115" cy="365" r="7" fill="#16a34a" stroke="#ffffff" stroke-width="2"/>
+    <rect x="60" y="305" width="110" height="22" rx="4" fill="#dcfce7" stroke="#86efac"/>
+    <text x="115" y="320" text-anchor="middle" class="badge-text" fill="#15803d">✓ Snaps to B</text>
+
+    <!-- Point (B.x, A.y) - Cross Point -->
+    <circle cx="115" cy="160" r="7" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
+    <rect x="40" y="175" width="150" height="24" rx="4" fill="#ffedd5" stroke="#fdba74"/>
+    <text x="115" y="191" text-anchor="middle" class="badge-text" fill="#c2410c">⚠ Snaps to (X: B, Y: A)</text>
+
+    <!-- Point (A.x, B.y) - Cross Point -->
+    <circle cx="305" cy="365" r="7" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
+    <rect x="230" y="380" width="150" height="24" rx="4" fill="#ffedd5" stroke="#fdba74"/>
+    <text x="305" y="396" text-anchor="middle" class="badge-text" fill="#c2410c">⚠ Snaps to (X: A, Y: B)</text>
+
+    <!-- Footer Note -->
+    <text x="217" y="482" text-anchor="middle" class="desc" font-weight="600" fill="#dc2626">Result: Can settle on empty space between A and B</text>
+  </g>
+
+  <!-- ================= RIGHT PANEL: scroll-snap-type: pair ================= -->
+  <g transform="translate(495, 20)">
+    <!-- Container Card -->
+    <rect width="435" height="495" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+    
+    <!-- Header -->
+    <text x="20" y="32" class="code-title" fill="#16a34a">scroll-snap-type: pair</text>
+    <text x="20" y="52" class="desc">Joined 2D snap points → Exactly 2 snap positions</text>
+
+    <!-- Canvas Scroller Area -->
+    <rect x="20" y="65" width="395" height="395" rx="8" fill="#7fffd4" stroke="#5eead4" stroke-width="1.5"/>
+
+    <!-- Axis Guidelines -->
+    <!-- X = B_x (115) -->
+    <line x1="115" y1="65" x2="115" y2="460" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+    <!-- X = A_x (305) -->
+    <line x1="305" y1="65" x2="305" y2="460" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+    <!-- Y = A_y (160) -->
+    <line x1="20" y1="160" x2="415" y2="160" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+    <!-- Y = B_y (365) -->
+    <line x1="20" y1="365" x2="415" y2="365" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+
+    <!-- Target Boxes -->
+    <!-- Target A -->
+    <rect x="280" y="135" width="50" height="50" rx="4" fill="#ff0000" stroke="#cc0000" stroke-width="1.5"/>
+    <text x="305" y="167" text-anchor="middle" class="box-label">A</text>
+
+    <!-- Target B -->
+    <rect x="90" y="340" width="50" height="50" rx="4" fill="#ff0000" stroke="#cc0000" stroke-width="1.5"/>
+    <text x="115" y="372" text-anchor="middle" class="box-label">B</text>
+
+    <!-- Valid Snap Points -->
+    <!-- Point (A.x, A.y) -->
+    <circle cx="305" cy="160" r="7" fill="#16a34a" stroke="#ffffff" stroke-width="2"/>
+    <rect x="235" y="100" width="140" height="22" rx="4" fill="#dcfce7" stroke="#86efac"/>
+    <text x="305" y="115" text-anchor="middle" class="badge-text" fill="#15803d">✓ Valid 2D Snap (A)</text>
+
+    <!-- Point (B.x, B.y) -->
+    <circle cx="115" cy="365" r="7" fill="#16a34a" stroke="#ffffff" stroke-width="2"/>
+    <rect x="45" y="305" width="140" height="22" rx="4" fill="#dcfce7" stroke="#86efac"/>
+    <text x="115" y="320" text-anchor="middle" class="badge-text" fill="#15803d">✓ Valid 2D Snap (B)</text>
+
+    <!-- Invalid Cross Points (Eliminated) -->
+    <!-- Point (B.x, A.y) - Eliminated -->
+    <g transform="translate(115, 160)">
+      <circle cx="0" cy="0" r="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <rect x="45" y="175" width="140" height="24" rx="4" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="115" y="191" text-anchor="middle" class="badge-text" fill="#b91c1c">✕ Invalid (No Snap)</text>
+
+    <!-- Point (A.x, B.y) - Eliminated -->
+    <g transform="translate(305, 365)">
+      <circle cx="0" cy="0" r="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <rect x="235" y="380" width="140" height="24" rx="4" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="305" y="396" text-anchor="middle" class="badge-text" fill="#b91c1c">✕ Invalid (No Snap)</text>
+
+    <!-- Footer Note -->
+    <text x="217" y="482" text-anchor="middle" class="desc" font-weight="600" fill="#16a34a">Result: Always settles on an actual target (A or B)</text>
+  </g>
+</svg>

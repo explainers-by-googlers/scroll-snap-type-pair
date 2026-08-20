@@ -1,12 +1,12 @@
 <pre class='metadata'>
-Title: The TODO API
-Shortname: todo
-Level: None
+Title: CSS Scroll Snap: pair axis
+Shortname: css-scroll-snap-pair
+Level: 2
 Status: w3c/UD
-Repository: explainers-by-googlers/todo-your-repo-name
-URL: https://explainers-by-googlers.github.io/todo-your-repo-name
-Editor: TODO: Your Name, Google https://google.com, TODO@google.com
-Abstract: TODO: A short description of your spec, one or two sentences.
+Repository: explainers-by-googlers/scroll-snap-type-pair
+URL: https://explainers-by-googlers.github.io/scroll-snap-type-pair
+Editor: David Liu, Google https://google.com, lcdavid@google.com
+Abstract: Extends the scroll-snap-type property with the 'pair' keyword to enforce 2D joined-axis scroll snapping to a single target element across both axes simultaneously.
 Markup Shorthands: markdown yes, css no
 Complain About: accidental-2119 yes, missing-example-ids yes
 Assume Explicit For: yes
